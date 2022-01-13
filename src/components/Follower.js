@@ -5,7 +5,7 @@ class Follower extends React.Component {
     return (
       <div>
         <img src="https://api.github.com/users/krystleM26/followers" />
-        Name: {name}
+        
       </div>
     )
   }

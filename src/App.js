@@ -1,5 +1,6 @@
 import React from 'react'
-
+import axios from 'axios'
+// import FollowerList from './components/FollowerList'
 
 const users = [
   {
@@ -18,11 +19,9 @@ class App extends React.Component {
     }
   }
   handleSubmit = (e) => {
-    e.preventDefault();
-   console.log("hey i work!")
-
+    e.preventDefault()
+    console.log('hey i work!')
   }
-
 
   render() {
     return (
@@ -30,14 +29,15 @@ class App extends React.Component {
         Github Info
         <form onSubmit={this.handleSubmit}>
           <button type="submit">Github Handle</button>
+          <input type="search" placeholder="Search" />
 
-          <input
-            type="search"
-            placeholder="Search"
-            
-          />
         </form>
-        <h2></h2>
+        <div>
+          <img src="https://avatars.githubusercontent.com/u/61578720?v=4" width="300px" />
+        </div>
+
+    
+       {/* <FollowerList /> */}
       </div>
     )
   }

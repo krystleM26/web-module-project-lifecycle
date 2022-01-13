@@ -1,15 +1,19 @@
 import React from "react";
+import Follower from "./Follower";
 
 class FollowerList extends React.Component {
     render () {
         return (
             <div>
-              {this.state.followerList.map(data => <div>{followers}</div>)}  
-            </div>
-        )
-    }
+              {this.props.followerList.map(followerList =>{
+                  return ( <Follower followerList={followerList} />)} 
+              )};
+              </div>
+        
+ 
 
 
+};
 }
 
 
