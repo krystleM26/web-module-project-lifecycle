@@ -4,26 +4,23 @@ import axios from 'axios'
 
 class App extends React.Component {
   state = {
-    userInfo: {
-      avatar_url: '',
-      name: 'Krystle Mitchell',
-      totalRepo: 0,
-      followers: [],
-    },
-  }
-  componentDidMount(){
+    followers: []
+    }
+  
+  componentDidMount() {
     axios.get("https://api.github.com/users/krystleM26/followers")
       .then(resp=> {
-        console.log(resp)
-      })
+        console.log(resp.data)
+        this.setState({
+          ...this.state,
+          followers: resp.data
+        
+        });
+        
+      });
   }
 
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     users: users,
-  //   }
-  // }
+
   handleSubmit = (e) => {
     e.preventDefault()
     console.log('hey i work!')
@@ -38,11 +35,13 @@ class App extends React.Component {
           <input type="search" placeholder="Search" />
         </form>
         <div>
-          {this.state.userInfo.followers.map(followers => {
-            return 
-              {userInfo}
-            
-          })}
+          {this.state.followers && this.state.followers.map(follower=> {
+            return <div style={{display:'flex', flexWrap:'wrap', width:"100px"}}>
+              <p>{follower.login}</p>
+              <img src={follower.avatar_url} width="100" height="100" />
+              </div>
+          })
+          }
         </div>
         {/* <FollowerList /> */}
       </div>
